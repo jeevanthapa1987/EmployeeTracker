@@ -42,15 +42,11 @@ const promptUser = () => {
                 'View all roles', 
                 'View all employees', 
                 'Add a department', 
-                'Add a role', 
-                'Add an employee', 
-                'Update an employee role',
-                'Update an employee manager',
+                'Add a role',  
                 "View employees by department",
                 'Delete a department',
                 'Delete a role',
                 'Delete an employee',
-                'View department budgets',
                 'No Action']
     }
   ])
@@ -101,9 +97,6 @@ const promptUser = () => {
         deleteRole();
       }
 
-      if (choices === "Delete an employee") {
-        deleteEmployee();
-      }
 
       if (choices === "View department budgets") {
         viewBudget();
@@ -117,7 +110,6 @@ const promptUser = () => {
 
 // function to show all departments 
 showDepartments = () => {
-  console.log('Showing all departments...\n');
   const sql = `SELECT department.id AS id, department.name AS department FROM department`; 
 
   connection.query(sql, (err, rows) => {
